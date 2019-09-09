@@ -1,0 +1,83 @@
+<div class="card">
+    <div class="card-body">
+      <form [formGroup]="angForm" novalidate>
+        <div class="form-group">
+          <label class="col-md-4">FirstName</label>
+          <input type="text" class="form-control" formControlName="fname" #first_name [(ngModel)] = "business.first_name" />
+        </div>
+        <div *ngIf="angForm.controls['fname'].invalid && (angForm.controls['fname'].dirty || angForm.controls['fname'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['person_name'].errors.required">
+            FirstName is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4">LastName </label>
+          <input type="text" class="form-control" formControlName="lname" #last_name [(ngModel)] = "business.last_name" />
+        </div>
+        <div *ngIf="angForm.controls['last_name'].invalid && (angForm.controls['last_name'].dirty || angForm.controls['last_name'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['business_name'].errors.required">
+           last_name is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4">email</label>
+          <input type="text" class="form-control" formControlName="email" #email [(ngModel)] = "business.email" />
+        </div>
+        <div *ngIf="angForm.controls['email'].invalid && (angForm.controls['email'].dirty || angForm.controls['email'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['business_gst_number'].errors.required">
+            Email  is required.
+          </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-4">Address</label>
+            <input type="textarea" class="form-control" formControlName="address" #address [(ngModel)] = "business.address" />
+          </div>
+          <div *ngIf="angForm.controls['address'].invalid && (angForm.controls['address'].dirty || angForm.controls[address].touched)" class="alert alert-danger">
+            <div *ngIf="angForm.controls['business_gst_number'].errors.required">
+              Address is required.
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-4">mobile</label>
+            <input type="text" class="form-control" formControlName="mobile" #mobile [(ngModel)] = "business.mobile" />
+          </div>
+          <div *ngIf="angForm.controls['mobile'].invalid && (angForm.controls['mobile'].dirty || angForm.controls['mobile'].touched)" class="alert alert-danger">
+            <div *ngIf="angForm.controls['mobile'].errors.required">
+              state name is required.
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-4">Country</label>
+            <input type="text" class="form-control" formControlName="country" #country [(ngModel)] = "business.email" />
+          </div>
+          <div *ngIf="angForm.controls['email'].invalid && (angForm.controls['email'].dirty || angForm.controls['email'].touched)" class="alert alert-danger">
+            <div *ngIf="angForm.controls['business_gst_number'].errors.required">
+              country name  is required.
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-4">State</label>
+            <input type="text" class="form-control" formControlName="state" #state [(ngModel)] = "business.state" />
+          </div>
+          <div *ngIf="angForm.controls['state'].invalid && (angForm.controls['state'].dirty || angForm.controls['state'].touched)" class="alert alert-danger">
+            <div *ngIf="angForm.controls['state'].errors.required">
+              state name is required.
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-4">city</label>
+            <input type="text" class="form-control" formControlName="state" #city [(ngModel)] = "business.city" />
+          </div>
+          <div *ngIf="angForm.controls['state'].invalid && (angForm.controls['state'].dirty || angForm.controls['state'].touched)" class="alert alert-danger">
+            <div *ngIf="angForm.controls['state'].errors.required">
+              city name is required.
+            </div>
+          </div>
+        <div class="form-group">
+          <button (click)="updateBusiness(first_name.value,last_name.value, email.value,mobile.value,country.value,state.value,city.value)"
+          [disabled]="angForm.invalid" 
+          class="btn btn-primary">Update Profile</button>
+        </div>
+      </form>
+    </div>
+  </div>
